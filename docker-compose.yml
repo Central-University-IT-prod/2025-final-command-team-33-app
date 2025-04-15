@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    expose:
+      - "8080"
+
+  nginx:
+    build:
+      context: .
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - backend
